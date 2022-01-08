@@ -1,5 +1,5 @@
 def solution(inp):
-    data = [tuple(x.strip().split(' ')) for x in inp.split('\n')[:-1]]
+    data = [tuple(x.strip().split(' ')) for x in inp.split('\n')]
     nav = { 'forward': 0, 'up': 0, 'down': 0, 'depth': 0 }
     for cmd, val in data:
         if cmd == 'forward':
@@ -9,5 +9,5 @@ def solution(inp):
     return nav['forward'] * nav['depth']
 
 
-raw = open('input.txt').read()
+raw = open('input.txt').read().rstrip()
 print(solution(raw))
