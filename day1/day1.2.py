@@ -7,6 +7,7 @@ def solution(inp):
             count = count + 1
         prev = sum(data[i - 3: i])
     return count
-        
+
+
 raw = open('input.txt').read().rstrip()
 print(solution(raw))

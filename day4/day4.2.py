@@ -20,6 +20,5 @@ def solution(inp):
             winners.update(idx)
 
 
-
 raw = open('input.txt').read().rstrip()
 print(solution(raw))
