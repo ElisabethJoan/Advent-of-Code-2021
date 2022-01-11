@@ -6,5 +6,6 @@ def solution(inp):
             count = count + 1
     return count
 
+
 raw = open('input.txt').read().rstrip()
 print(solution(raw))

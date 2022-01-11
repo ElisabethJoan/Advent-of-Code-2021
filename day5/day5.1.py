@@ -40,6 +40,7 @@ def bresenhams(x0, y0, x1, y1):
             y += sy
     yield x, y
 
+
 raw = open('input.txt').read().rstrip()
 print(solution(raw))
 
