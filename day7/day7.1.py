@@ -1,5 +1,5 @@
 def solution(inp):
-    crabs = [int(x) for x in raw.split(',')]
+    crabs = [int(x) for x in inp.split(',')]
     crabs.sort()
 
     n = len(crabs)
