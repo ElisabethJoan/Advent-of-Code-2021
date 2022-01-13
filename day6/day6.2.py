@@ -1,19 +1,18 @@
 def solution(inp, days):
-    init_fish = [int(x) for x in inp.split(',')]
-    fish = [0] * 10
-    for i in init_fish:
-        fish[i] += 1
+    school = [0] * 10
+    for fish in inp.split(','):
+        school[int(fish)] += 1
 
     for i in range(days):
-        born = fish.pop(0)
-        fish[6] += born
-        fish[8] += born
-        fish.append(0)
+        born = school.pop(0)
+        school[6] += born
+        school[8] += born
+        school.append(0)
 
-    return sum(fish)
+    return sum(school)
 
 
-raw = open('test.txt').read().rstrip()
+raw = open('input.txt').read().rstrip()
 print(solution(raw, 256))
 
 

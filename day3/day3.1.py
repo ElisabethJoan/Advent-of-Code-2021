@@ -1,9 +1,9 @@
 def solution(inp):
-    data = [x.rstrip() for x in inp.split('\n')]
+    report = [line.rstrip() for line in inp.split('\n')]
     gamma = ''
     epsilon = ''
-    for i in range(len(data[0])):
-        f = frequency([code[i] for code in data])
+    for i in range(len(report[0])):
+        f = frequency([code[i] for code in report])
         gamma = gamma + f[0]
         epsilon = epsilon + f[1]
 

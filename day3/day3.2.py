@@ -1,11 +1,11 @@
 def solution(inp):
-    data = [x.rstrip() for x in inp.split('\n')]
+    data = [line.rstrip() for line in inp.split('\n')]
     gamma = data
     epsilon = data
     for i in range(len(data[0])):
         f = frequency([code[i] for code in gamma], [code[i] for code in epsilon])
-        gamma = list(filter(lambda x:x[i] == f[0], gamma))
-        epsilon = list(filter(lambda x:x[i] == f[1], epsilon))
+        gamma = list(filter(lambda bit:bit[i] == f[0], gamma))
+        epsilon = list(filter(lambda bit:bit[i] == f[1], epsilon))
 
     return int(''.join(gamma), 2) * int(''.join(epsilon), 2)
 

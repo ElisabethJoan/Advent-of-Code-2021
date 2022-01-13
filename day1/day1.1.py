@@ -1,5 +1,5 @@
 def solution(inp):
-    data = [int(x.rstrip()) for x in inp.split('\n')]
+    data = [int(line.rstrip()) for line in inp.split('\n')]
     count = 0 
     for i in range(1, len(data)):
         if data[i - 1] < data[i]:

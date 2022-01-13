@@ -1,9 +1,9 @@
 def solution(inp):
-    crabs = [int(x) for x in inp.split(',')]
+    crabs = [int(crab) for crab in inp.split(',')]
 
     target = int(sum(crabs) / len(crabs))
     
-    return sum([(abs(x - target)) * (abs(x - target) + 1) // 2 for x in crabs])
+    return sum([(abs(crab - target)) * (abs(crab - target) + 1) // 2 for crab in crabs])
 
 
 raw = open('input.txt').read().rstrip()

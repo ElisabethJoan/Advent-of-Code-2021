@@ -1,15 +1,15 @@
 def solution(inp):
-    nums = [int(z) for x in inp.split('\n') for y in x.split(' -> ') for z in y.split(',')]
+    nums = [int(coord) for line in inp.split('\n') for coords in line.split(' -> ') for coord in coords.split(',')]
     points = {}
     for i in range(0, len(nums), 4):
         coords = nums[i:i + 4]
-        for j in list(bresenhams(*coords)):
-            if j in points:
-                points[j] += 1
+        for point in list(bresenhams(*coords)):
+            if point in points:
+                points[point] += 1
             else:
-                points[j] = 1
+                points[point] = 1
 
-    return sum(y > 1 for _, y in points.items())
+    return sum(overlap > 1 for _, overlap in points.items())
     
 
 def bresenhams(x0, y0, x1, y1):

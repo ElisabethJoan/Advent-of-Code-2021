@@ -1,10 +1,8 @@
 def solution(inp):
-    lines = [x for x in inp.split('\n')]
-
     total = 0
-    for line in lines:
-        inputs, outputs = [x.split(' ') for x in line.split(' | ')]
-        inputs = sorted([set(s) for s in inputs], key = lambda x : len(x))
+    for line in inp.split('\n'):
+        inputs, outputs = [signal_patterns.split(' ') for signal_patterns in line.split(' | ')]
+        inputs = sorted([set(signal) for signal in inputs], key = lambda x:len(x))
 
         nums = {}
         nums[1] = inputs.pop(0)
@@ -12,27 +10,27 @@ def solution(inp):
         nums[4] = inputs.pop(0)
         nums[8] = inputs.pop(-1)
         
-        for i in inputs[0:3]:
-            if i >= nums[1]:
-                nums[3] = i
-            elif len(i & nums[4]) == 3:
-                nums[5] = i
+        for signal in inputs[0:3]:
+            if signal >= nums[1]:
+                nums[3] = signal
+            elif len(signal & nums[4]) == 3:
+                nums[5] = signal
             else: 
-                nums[2] = i
+                nums[2] = signal
 
-        for i in inputs[3:]:
-            if i >= nums[4]:
-                nums[9] = i
-            elif len(i & nums[7]) == 2:
-                nums[6] = i
+        for signal in inputs[3:]:
+            if signal >= nums[4]:
+                nums[9] = signal
+            elif len(signal & nums[7]) == 2:
+                nums[6] = signal
             else: 
-                nums[0] = i
+                nums[0] = signal
 
-        output = ''
-        for i in outputs:
-            output += ''.join([str(x) for x, y in nums.items() if set(i) == y])
+        value = ''
+        for output in outputs:
+            value += ''.join([str(num) for num, signal in nums.items() if set(output) == signal])
         
-        total += int(output)
+        total += int(value)
     return total
 
 

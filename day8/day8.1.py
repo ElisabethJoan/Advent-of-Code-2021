@@ -1,10 +1,9 @@
 def solution(inp):
-    lines = [x for x in inp.split('\n')]
     uniques = 0
 
-    for line in lines:
-        _, outputs = [x.split(' ') for x in line.split(' | ')]
-        uniques += len([x for x in outputs if len(x) in [2, 3, 4, 7]])
+    for line in inp.split('\n'):
+        _, outputs = [signal_patterns.split(' ') for signal_patterns in line.split(' | ')]
+        uniques += len([output for output in outputs if len(output) in [2, 3, 4, 7]])
 
     return uniques
 
