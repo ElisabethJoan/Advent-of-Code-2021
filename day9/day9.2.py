@@ -1,4 +1,5 @@
 def solution(inp):
+    global cavern
     cavern = [[float('inf')] + list(map(int, line)) + [float('inf')] for line in inp.split('\n')]
     cavern.insert(0, [float('inf')] * len(cavern[0]))
     cavern.append([float('inf')] * len(cavern[0]))
@@ -13,7 +14,7 @@ def solution(inp):
     return basins[-1] * basins[-2] * basins[-3]
 
 
-def find_basin(x, y, cavern):
+def find_basin(x, y):
     basin = []
     path = [(x, y)]
 
@@ -24,7 +25,7 @@ def find_basin(x, y, cavern):
     return len(basin)
 
 
-def traverse_point(x, y, point, cavern):
+def traverse_point(x, y, point):
     basin_members = []
     for adj_x, adj_y in [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]:
             adj_point = cavern[adj_y][adj_x]
@@ -35,4 +36,3 @@ def traverse_point(x, y, point, cavern):
 
 raw = open('input.txt').read().rstrip()
 print(solution(raw))
-
